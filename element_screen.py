@@ -86,7 +86,7 @@ class Element(ttk.Frame):
         # 2 - Sensor description
         img = Label(sensor_description_part, bg='yellow', text='description!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         img.grid(row=1, column=1, sticky='NEWS')
-        
+         
         
         
         
