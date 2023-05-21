@@ -11,7 +11,7 @@ import os
 import json
 import math
 from func_repository import resource_path
-
+from PIL import Image, ImageTk
 THINGSBOARD_HOST = "210.117.143.37"
 ACCESS_TOKEN='51ZFhNEWFXLi4pW758Gy'
 port = 10061
@@ -122,7 +122,7 @@ class Home(ttk.Frame):
         
         ##### put modules in frames #####
 ################################################################################################################################################################
-        from PIL import Image, ImageTk
+        
         #status
         self.time_label = tk.Label(status_part,bg='black',text='', fg='white', font=('Arial', 20))
         self.time_label.grid(column=0, row=0,sticky="W")
