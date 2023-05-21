@@ -10,6 +10,7 @@ import paho.mqtt.client as mqtt
 import os
 import json
 import math
+from func_repository import resource_path
 
 THINGSBOARD_HOST = "210.117.143.37"
 ACCESS_TOKEN='51ZFhNEWFXLi4pW758Gy'
@@ -126,23 +127,23 @@ class Home(ttk.Frame):
         self.time_label = tk.Label(status_part,bg='black',text='', fg='white', font=('Arial', 20))
         self.time_label.grid(column=0, row=0,sticky="W")
         
-        non_connection_status_img = Image.open('img/wifi/non_connection.png')
+        non_connection_status_img = Image.open(resource_path('img/wifi/non_connection.png'))
         resized_non_connection_status_img = non_connection_status_img.resize((20, 20), Image.ANTIALIAS)
         self.photo_non_connection_status = ImageTk.PhotoImage(resized_non_connection_status_img)
         
         
-        wifi_connection_status_img = Image.open('img/wifi/strength/wifi_strength_4.png')
+        wifi_connection_status_img = Image.open(resource_path('img/wifi/strength/wifi_strength_4.png'))
         resized_wifi_connection_status_img = wifi_connection_status_img.resize((20, 20), Image.ANTIALIAS)
         self.photo_wifi_connection_status = ImageTk.PhotoImage(resized_wifi_connection_status_img)
         
-        ethernet_connection_status_img = Image.open('img/wifi/ethernet.png')
+        ethernet_connection_status_img = Image.open(resource_path('img/wifi/ethernet.png'))
         resized_ethernet_connection_status_img = ethernet_connection_status_img.resize((20, 20), Image.ANTIALIAS)
         self.photo_ethernet_connection_status = ImageTk.PhotoImage(resized_ethernet_connection_status_img)
         
         
 
         # wifi_image = tk.PhotoImage(file='img/wifi/wifi.png')
-        quit_image = tk.PhotoImage(file='img/parts/back_button.png')
+        quit_image = tk.PhotoImage(file=resource_path('img/parts/back_button.png'))
         
         
         # Temporary Quit Button for DEBUG!!!!!!!!!!
@@ -326,7 +327,7 @@ class Home(ttk.Frame):
         # self.set_image(tvoc_part, 'img/sensor/Main-TVOC.png')
         # self.set_label(tvoc_part, 'TVOC')
 
-        tvoc_img = PhotoImage(file='img/sensor/Main-TVOC.png')
+        tvoc_img = PhotoImage(file=resource_path('img/sensor/Main-TVOC.png'))
         tvoc_img_label = Label(tvoc_part, image=tvoc_img, bg='black', height=80)
         tvoc_img_label.image = tvoc_img
         tvoc_img_label.grid(row=0, column=0)
@@ -342,7 +343,7 @@ class Home(ttk.Frame):
         # self.set_image(co_part, 'img/sensor/Main-CO.png')
         # self.set_label(co_part, 'CO')
 
-        co_img = PhotoImage(file='img/sensor/Main-CO.png')
+        co_img = PhotoImage(file=resource_path('img/sensor/Main-CO.png'))
         co_img_label = Label(co_part, image=co_img, bg='black', height=80)
         co_img_label.image = co_img
         co_img_label.grid(row=0, column=0)
@@ -358,7 +359,7 @@ class Home(ttk.Frame):
         # self.set_image(co2_part, 'img/sensor/Main-CO2.png')
         # self.set_label(co2_part, 'CO2')
 
-        co2_img = PhotoImage(file='img/sensor/Main-CO2.png')
+        co2_img = PhotoImage(file=resource_path('img/sensor/Main-CO2.png'))
         co2_img_label = Label(co2_part, image=co2_img, bg='black', height=80)
         co2_img_label.image = co2_img
         co2_img_label.grid(row=0, column=0)
@@ -374,7 +375,7 @@ class Home(ttk.Frame):
         # self.set_image(no2_part, 'img/sensor/Main-NO2.png')
         # self.set_label(no2_part, 'NO2')
 
-        no2_img = PhotoImage(file='img/sensor/Main-NO2.png')
+        no2_img = PhotoImage(file=resource_path('img/sensor/Main-NO2.png'))
         no2_img_label = Label(no2_part, image=no2_img, bg='black', height=80)
         no2_img_label.image = no2_img
         no2_img_label.grid(row=0, column=0)
@@ -390,7 +391,7 @@ class Home(ttk.Frame):
         # self.set_image(pm25_part, 'img/sensor/Main-PM2.5.png')
         # self.set_label(pm25_part, 'PM2.5')
 
-        pm25_img = PhotoImage(file='img/sensor/Main-PM2.5.png')
+        pm25_img = PhotoImage(file=resource_path('img/sensor/Main-PM2.5.png'))
         pm25_img_label = Label(pm25_part, image=pm25_img, bg='black', height=80)
         pm25_img_label.image = pm25_img
         pm25_img_label.grid(row=0, column=0)
@@ -406,7 +407,7 @@ class Home(ttk.Frame):
         # self.set_image(h2s_part, 'img/sensor/Main-H2S.png')
         # self.set_label(h2s_part, 'H2S')
 
-        h2s_img = PhotoImage(file='img/sensor/Main-H2S.png')
+        h2s_img = PhotoImage(file=resource_path('img/sensor/Main-H2S.png'))
         h2s_img_label = Label(h2s_part, image=h2s_img, bg='black', height=80)
         h2s_img_label.image = h2s_img
         h2s_img_label.grid(row=0, column=0)
@@ -422,7 +423,7 @@ class Home(ttk.Frame):
         # self.set_image(pm10_part, 'img/sensor/Main-PM10.png')
         # self.set_label(pm10_part, 'PM10')
 
-        pm10_img = PhotoImage(file='img/sensor/Main-PM10.png')
+        pm10_img = PhotoImage(file=resource_path('img/sensor/Main-PM10.png'))
         pm10_img_label = Label(pm10_part, image=pm10_img, bg='black', height=80)
         pm10_img_label.image = pm10_img
         pm10_img_label.grid(row=0, column=0)
@@ -438,7 +439,7 @@ class Home(ttk.Frame):
         # self.set_image(light_part, 'img/sensor/Main-Light.png')
         # self.set_label(light_part, 'Light')
 
-        light_img = PhotoImage(file='img/sensor/Main-Light.png')
+        light_img = PhotoImage(file=resource_path('img/sensor/Main-Light.png'))
         light_img_label = Label(light_part, image=light_img, bg='black', height=80)
         light_img_label.image = light_img
         light_img_label.grid(row=0, column=0)
@@ -454,7 +455,7 @@ class Home(ttk.Frame):
         # self.set_image(ch2o_part, 'img/sensor/Main-CH2O.png')
         # self.set_label(ch2o_part, 'CH2O')
 
-        CH2O_img = PhotoImage(file='img/sensor/Main-CH2O.png')
+        CH2O_img = PhotoImage(file=resource_path('img/sensor/Main-CH2O.png'))
         CH2O_img_label = Label(ch2o_part, image=CH2O_img, bg='black', height=80)
         CH2O_img_label.image = CH2O_img
         CH2O_img_label.grid(row=0, column=0)
@@ -470,7 +471,7 @@ class Home(ttk.Frame):
         # self.set_image(sound_part, 'img/sensor/Main-Sound.png')
         # self.set_label(sound_part, 'Sound')
 
-        sound_img = PhotoImage(file='img/sensor/Main-Sound.png')
+        sound_img = PhotoImage(file=resource_path('img/sensor/Main-Sound.png'))
         sound_img_label = Label(sound_part, image=sound_img, bg='black', height=80)
         sound_img_label.image = sound_img
         sound_img_label.grid(row=0, column=0)
@@ -486,7 +487,7 @@ class Home(ttk.Frame):
         # self.set_image(sm_part, 'img/sensor/Main-Sm.png')
         # self.set_label(sm_part, 'Sm')
 
-        Sm_img = PhotoImage(file='img/sensor/Main-Sm.png')
+        Sm_img = PhotoImage(file=resource_path('img/sensor/Main-Sm.png'))
         Sm_img_label = Label(sm_part, image=Sm_img, bg='black', height=80)
         Sm_img_label.image = Sm_img
         Sm_img_label.grid(row=0, column=0)
@@ -502,7 +503,7 @@ class Home(ttk.Frame):
         # self.set_image(rn_part, 'img/sensor/Main-Rn.png')
         # self.set_label(rn_part, 'Rn')
 
-        Rn_img = PhotoImage(file='img/sensor/Main-Rn.png')
+        Rn_img = PhotoImage(file=resource_path('img/sensor/Main-Rn.png'))
         Rn_img_label = Label(rn_part, image=Rn_img, bg='black', height=80)
         Rn_img_label.image = Rn_img
         Rn_img_label.grid(row=0, column=0)
@@ -518,7 +519,7 @@ class Home(ttk.Frame):
         # self.set_image(nh3_part, 'img/sensor/Main-NH3.png')
         # self.set_label(nh3_part, 'NH3')
 
-        NH3_img = PhotoImage(file='img/sensor/Main-NH3.png')
+        NH3_img = PhotoImage(file=resource_path('img/sensor/Main-NH3.png'))
         NH3_img_label = Label(nh3_part, image=NH3_img, bg='black', height=80)
         NH3_img_label.image = NH3_img
         NH3_img_label.grid(row=0, column=0)
@@ -534,7 +535,7 @@ class Home(ttk.Frame):
         # self.set_image(o3_part, 'img/sensor/Main-O3.png')
         # self.set_label(o3_part, 'O3')
 
-        O3_img = PhotoImage(file='img/sensor/Main-O3.png')
+        O3_img = PhotoImage(file=resource_path('img/sensor/Main-O3.png'))
         O3_img_label = Label(o3_part, image=O3_img, bg='black', height=80)
         O3_img_label.image = O3_img
         O3_img_label.grid(row=0, column=0)
@@ -570,13 +571,13 @@ class Home(ttk.Frame):
 
 
     def set_horizontal_separator_image(self, frame, column):
-        sep_h_img = PhotoImage(file='img/parts/Main_H_separator.png')
+        sep_h_img = PhotoImage(file=resource_path('img/parts/Main_H_separator.png'))
         sep_h_img_label = Label(frame, image=sep_h_img, bg='black')
         sep_h_img_label.image = sep_h_img
         sep_h_img_label.grid(row=1, column=column, padx=12)
     
     def set_vertical_separator_image(self, frame, column):
-        sep_v_img = PhotoImage(file='img/parts/Main_V_separator.png',height=350)
+        sep_v_img = PhotoImage(file=resource_path('img/parts/Main_V_separator.png'),height=350)
         sep_v_img_label = Label(frame, image=sep_v_img, bg='black')
         sep_v_img_label.image = sep_v_img
         sep_v_img_label.grid(row=0, column=column, rowspan=3)
@@ -635,7 +636,7 @@ class Home(ttk.Frame):
         self.after(3000, self.lan_connection_update)
         
     def get_image_instance(self, frame, path, width, height, row, column,sticky, command=None):
-        img = Image.open(path)
+        img = Image.open(resource_path(path))
         resized_img = img.resize((width,height), Image.ANTIALIAS)
         photo_img = ImageTk.PhotoImage(resized_img)
         img_label = Label(frame, image=photo_img, bg='black')
@@ -647,7 +648,7 @@ class Home(ttk.Frame):
         return img_label
     
     def get_image(self, frame, path, width, height, row, column,sticky, command=None):
-        img = Image.open(path)
+        img = Image.open(resource_path(path))
         resized_img = img.resize((width,height), Image.ANTIALIAS)
         photo_img = ImageTk.PhotoImage(resized_img)
         img_label = Label(frame, image=photo_img, bg='black')

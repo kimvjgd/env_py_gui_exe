@@ -3,6 +3,8 @@ from tkinter import ttk
 from sensor_list import SENSOR_DICT
 from tkinter import *
 from PIL import Image, ImageTk
+from func_repository import resource_path
+
 
 class Element(ttk.Frame):
     def __init__(self,parent, controller, show_home, sensor):
@@ -71,7 +73,7 @@ class Element(ttk.Frame):
         image_path = 'img/sensor/' + self.sensor_name + '.png'
         # image_name = 'img/sensor/' + controller.sensor_name + '.png'
         # self.get_image(sensor_description_part, image_name, 80, 80, 0, 0, 'NEWS', rowspan=2)
-        sensor_img = Image.open(image_path)
+        sensor_img = Image.open(resource_path(image_path))
         resized_img = sensor_img.resize((70, 70), Image.ANTIALIAS)
         sensor_image = ImageTk.PhotoImage(resized_img)
         self.img_label = Label(sensor_description_part, image=sensor_image, bg='green')
@@ -115,7 +117,7 @@ class Element(ttk.Frame):
         
         
     def get_image(self, frame, path, width, height, row, column,sticky, command=None,rowspan=1):
-        img = Image.open(path)
+        img = Image.open(resource_path(path))
         resized_img = img.resize((width,height), Image.ANTIALIAS)
         photo_img = ImageTk.PhotoImage(resized_img)
         img_label = Label(frame, image=photo_img, bg='black')

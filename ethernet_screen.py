@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
+from func_repository import resource_path
 
 
 class EthernetScreen(ttk.Frame):
@@ -73,10 +74,10 @@ class EthernetScreen(ttk.Frame):
         combobox.set('Auto')
         combobox.grid(row=0, column=0, sticky='NEWS')
 ####################################################################################################################
-        on_img = Image.open('img/parts/toggle_on.png')
+        on_img = Image.open(resource_path('img/parts/toggle_on.png'))
         resized_on_img = on_img.resize((65,37), Image.ANTIALIAS)
         self.on = ImageTk.PhotoImage(resized_on_img)
-        off_img = Image.open('img/parts/toggle_off.png')
+        off_img = Image.open(resource_path('img/parts/toggle_off.png'))
         resized_off_img = off_img.resize((65,37), Image.ANTIALIAS)
         self.off = ImageTk.PhotoImage(resized_off_img)
 
@@ -113,7 +114,7 @@ class EthernetScreen(ttk.Frame):
     
     
     def get_image(self, frame, path, width, height, row, column,sticky, command=None):
-        img = Image.open(path)
+        img = Image.open(resource_path(path))
         resized_img = img.resize((width,height), Image.ANTIALIAS)
         photo_img = ImageTk.PhotoImage(resized_img)
         img_label = Label(frame, image=photo_img, bg='black')

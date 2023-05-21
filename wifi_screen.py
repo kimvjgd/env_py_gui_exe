@@ -6,6 +6,7 @@ from wifi import Cell, Scheme
 import wifi
 import subprocess
 import wifi_func as wf
+from func_repository import resource_path
 
 # 현재 어떠한 와이파이가 있고 다른 와이파이들을 검색해주는 화면
 
@@ -32,16 +33,16 @@ class WifiScreen(ttk.Frame):
         self.last_num = len(self.available_wifi_list) - 1
         self.current_start_num = 0
         self.current_end_num = 2
-        good_img = Image.open('img/wifi/strength/wifi_strength_4.png').resize((40,40), Image.ANTIALIAS)
+        good_img = Image.open(resource_path('img/wifi/strength/wifi_strength_4.png')).resize((40,40), Image.ANTIALIAS)
         self.good_wifi_signal = ImageTk.PhotoImage(good_img)
         
-        soso_img = Image.open('img/wifi/strength/wifi_strength_3.png').resize((40,40), Image.ANTIALIAS)
+        soso_img = Image.open(resource_path('img/wifi/strength/wifi_strength_3.png')).resize((40,40), Image.ANTIALIAS)
         self.soso_wifi_signal = ImageTk.PhotoImage(soso_img)
         
-        bad_img = Image.open('img/wifi/strength/wifi_strength_2.png').resize((40,40), Image.ANTIALIAS)
+        bad_img = Image.open(resource_path('img/wifi/strength/wifi_strength_2.png')).resize((40,40), Image.ANTIALIAS)
         self.bad_wifi_signal = ImageTk.PhotoImage(bad_img)
 
-        non_conncetion_img = Image.open('img/wifi/strength/wifi_strength_0.png').resize((40,40), Image.ANTIALIAS)
+        non_conncetion_img = Image.open(resource_path('img/wifi/strength/wifi_strength_0.png')).resize((40,40), Image.ANTIALIAS)
         self.non_connection_signal = ImageTk.PhotoImage(non_conncetion_img)
         
         
@@ -152,14 +153,14 @@ class WifiScreen(ttk.Frame):
         
         
         
-        up_btn_img = Image.open('img/parts/btn_up.png')
+        up_btn_img = Image.open(resource_path('img/parts/btn_up.png'))
         resized_up_btn_img = up_btn_img.resize((20, 20), Image.ANTIALIAS)
         photo_up_btn = ImageTk.PhotoImage(resized_up_btn_img)
         up_button = Button(available_wifi_part, command=self.press_up_button, bg='black', image = photo_up_btn)
         up_button.image = photo_up_btn
         up_button.grid(row=0, column=2,sticky='NEWS')
 
-        down_btn_img = Image.open('img/parts/btn_down.png')
+        down_btn_img = Image.open(resource_path('img/parts/btn_down.png'))
         resized_down_btn_img = down_btn_img.resize((20, 20), Image.ANTIALIAS)
         photo_down_btn = ImageTk.PhotoImage(resized_down_btn_img)
         down_button = Button(available_wifi_part, command=self.press_down_button, bg='black', image = photo_down_btn)
@@ -325,7 +326,7 @@ class WifiScreen(ttk.Frame):
     #     # print(uart_data_thread.TVOC)
 
     def get_image(self, frame, path, width, height, row, column,sticky, command=None):
-        img = Image.open(path)
+        img = Image.open(resource_path(path))
         resized_img = img.resize((width,height), Image.ANTIALIAS)
         photo_img = ImageTk.PhotoImage(resized_img)
         img_label = Label(frame, image=photo_img, bg='black')
@@ -336,7 +337,7 @@ class WifiScreen(ttk.Frame):
         img_label.bind("<Button-1>", local_click)
     
     def get_image_instance(self, frame, path, width, height, row, column,sticky, command=None):
-        img = Image.open(path)
+        img = Image.open(resource_path(path))
         resized_img = img.resize((width,height), Image.ANTIALIAS)
         photo_img = ImageTk.PhotoImage(resized_img)
         img_label = Label(frame, image=photo_img, bg='black')
@@ -349,7 +350,7 @@ class WifiScreen(ttk.Frame):
     
 
     def get_button(self, frame,command, path, width, height, row, column,sticky):
-        img = Image.open(path)
+        img = Image.open(resource_path(path))
         resized_img = img.resize((width,height), Image.ANTIALIAS)
         photo_img = ImageTk.PhotoImage(resized_img)
         img_label = Button(frame, image=photo_img, bg='black', command=command,bd=0)        # bd = border

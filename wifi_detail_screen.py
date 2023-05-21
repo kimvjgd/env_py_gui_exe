@@ -4,6 +4,7 @@ from tkinter import *
 from PIL import Image, ImageTk
 import wifi_func as wf
 import subprocess
+from func_repository import resource_path
 # 와이파이 하나 클릭하면 비번치고...등등등 하는 화면
 
 class WifiDetailScreen(ttk.Frame):
@@ -69,10 +70,10 @@ class WifiDetailScreen(ttk.Frame):
         self.password_entry.grid(row=0, column=0)
         self.password_entry.config(show='*')
         self.password_entry.bind('<Button-1>', entry_click)
-        show_img = Image.open('img/parts/visible_on.png')
+        show_img = Image.open(resource_path('img/parts/visible_on.png'))
         resized_show_img = show_img.resize((45,35), Image.ANTIALIAS)
         self.show_image = ImageTk.PhotoImage(resized_show_img)
-        hide_img = Image.open('img/parts/visible_off.png')
+        hide_img = Image.open(resource_path('img/parts/visible_off.png'))
         resized_hide_img = hide_img.resize((45,35), Image.ANTIALIAS)
         self.hide_image = ImageTk.PhotoImage(resized_hide_img)
         
@@ -90,10 +91,10 @@ class WifiDetailScreen(ttk.Frame):
 
         Label(self.auto_connection_frame, text='자동으로 연결', font=('Arial',30)).grid(row=0, column=0)
             
-        on_img = Image.open('img/parts/toggle_on.png')
+        on_img = Image.open(resource_path('img/parts/toggle_on.png'))
         resized_on_img = on_img.resize((65,55), Image.ANTIALIAS)
         self.on = ImageTk.PhotoImage(resized_on_img)
-        off_img = Image.open('img/parts/toggle_off.png')
+        off_img = Image.open(resource_path('img/parts/toggle_off.png'))
         resized_off_img = off_img.resize((65,55), Image.ANTIALIAS)
         self.off = ImageTk.PhotoImage(resized_off_img)
         
@@ -136,7 +137,7 @@ class WifiDetailScreen(ttk.Frame):
         
         
     def get_image(self, frame, path, width, height, row, column,sticky, command=None):
-        img = Image.open(path)
+        img = Image.open(resource_path(path))
         resized_img = img.resize((width,height), Image.ANTIALIAS)
         photo_img = ImageTk.PhotoImage(resized_img)
         img_label = Label(frame, image=photo_img, bg='black')

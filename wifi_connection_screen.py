@@ -5,6 +5,8 @@ from PIL import Image, ImageTk
 from wifi import Cell, Scheme
 import wifi
 import subprocess
+from func_repository import resource_path
+
 
 class WifiConnectionScreen(ttk.Frame):
     def __init__(self, parent, controller, show_wifi_list_screen, wifi_name='temp_wifi_name'):
@@ -27,7 +29,7 @@ class WifiConnectionScreen(ttk.Frame):
         
         
     def get_image(self, frame, path, width, height, row, column,sticky, command=None):
-        img = Image.open(path)
+        img = Image.open(resource_path(path))
         resized_img = img.resize((width,height), Image.ANTIALIAS)
         photo_img = ImageTk.PhotoImage(resized_img)
         img_label = Label(frame, image=photo_img, bg='black')
